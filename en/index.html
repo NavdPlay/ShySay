@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <title>ShySay</title>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Nunito:400,500,600,700,800,900');
@@ -233,18 +234,21 @@
       <p class="lang"><span>EN</span> | ID</p>
     </div>
     <div class="heading-container">
-      <h1 class="heading">Tell your <u>feelings</u> to Your <u>love</u></h1>
-      <p class="heading-desc">Too shy to message them directly? Send words to someone special for you, or relatives and friends with ShySay.</p>
-      <button class="heading-btn">Send a message</button>
-      <img class="girl-img" src="../img/girl.png">
-      <img class="boy-img" src="../img/boy.png">
+      <h1 class="heading" data-aos="fade-up">Tell your <u>feelings</u> to Your <u>love</u></h1>
+      <p class="heading-desc" data-aos="fade-up">Too shy to message them directly? Send words to someone special for you, or relatives and friends with ShySay.</p>
+      <button class="heading-btn" data-aos="fade-up" data-aos-duration="900">Send a message</button>
+      <img class="girl-img" src="../img/girl.png" data-aos="fade-up" data-aos-duration="1500">
+      <img class="boy-img" src="../img/boy.png" data-aos="fade-up" data-aos-duration="1500">
       <a href="https://www.freepik.com/vectors/people" class="freepik-attr">People vector created by jcomp - www.freepik.com</a>
     </div>
     <div class="footer">
       <p class="footer-text"></p>
     </div>
   </div>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
+    AOS.init({ disable: 'mobile' })
+
     var date = new Date();
     var year = date.getFullYear();
     $('.footer-text').html(`Copyright © ${year} ShySay™. All Rights Reserved`);
