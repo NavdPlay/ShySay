@@ -40,7 +40,7 @@
       left: 7%;
       font-size: 35px;
       font-weight: 800;
-      width: 100%;
+      width: 15%;
     }
     .lang {
       right: 7%;
@@ -98,7 +98,7 @@
       transition: 0.3s;
     }
     .heading-btn:hover {
-      background-color: #ffd2d2;
+      background-color: #ffe4e4;
     }
     .girl-img {
       position: absolute;
@@ -230,13 +230,13 @@
 <body>
   <div class="container">
     <div class="header-container">
-      <h1 class="header">ShySay</h1>
+      <h1 class="header" onclick="location.replace('index.html')" style="cursor: pointer;">ShySay</h1>
       <p class="lang"><span>EN</span> | ID</p>
     </div>
     <div class="heading-container">
       <h1 class="heading" data-aos="fade-up">Tell your <u>feelings</u> to Your <u>love</u></h1>
       <p class="heading-desc" data-aos="fade-up">Too shy to message them directly? Send words to someone special for you, or relatives and friends with ShySay.</p>
-      <button class="heading-btn" data-aos="fade-up" data-aos-duration="900">Send a message</button>
+      <button class="heading-btn" data-aos="fade-up" data-aos-duration="900" onclick="location.replace('message.html')">Send a message</button>
       <img class="girl-img" src="../img/girl.png" data-aos="fade-up" data-aos-duration="1500">
       <img class="boy-img" src="../img/boy.png" data-aos="fade-up" data-aos-duration="1500">
       <a href="https://www.freepik.com/vectors/people" class="freepik-attr">People vector created by jcomp - www.freepik.com</a>
