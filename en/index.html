@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <title>ShySay</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito:400,500,600,700,800,900');
+
+    html * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+    }
+    .header-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: transparent;
+      z-index: 1;
+      height: 80px;
+      transition: 0.3s;
+    }
+    .header, .lang {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      transition: 0.3s;
+    }
+    .header {
+      left: 7%;
+      font-size: 35px;
+      font-weight: 800;
+      width: 100%;
+    }
+    .lang {
+      right: 7%;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .lang > span {
+      font-weight: 800;
+      text-decoration: underline;
+    }
+    .heading-container {
+      position: relative;
+      width: 100%;
+      height: 975px;
+      background: rgb(255,66,99);
+      background: linear-gradient(25deg, rgba(255,66,99,1) 0%, rgba(255,205,214,1) 100%);
+    }
+    .heading {
+      position: absolute;
+      top: 165px;
+      left: 7%;
+      font-size: 34px;
+      width: 42%;
+      font-weight: 800;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      line-height: 36px;
+    }
+    .heading-desc {
+      position: absolute;
+      top: 285px;
+      left: 7.2%;
+      font-size: 20px;
+      width: 42%;
+      font-weight: 400;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 500;
+    }
+    .heading-btn {
+      position: absolute;
+      top: 420px;
+      left: 7.5%;
+      font-size: 18px;
+      width: 25%;
+      color: #ff4263;
+      font-family: 'Nunito', sans-serif;
+      min-width: 167px;
+      font-weight: 700;
+      border: none;
+      background-color: #fff;
+      height: 44px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .heading-btn:hover {
+      background-color: #ffd2d2;
+    }
+    .girl-img {
+      position: absolute;
+      top: 115px;
+      left: 55%;
+      width: 20%;
+    }
+    .boy-img {
+      position: absolute;
+      top: 115px;
+      right: 0;
+      width: 23.5%;
+    }
+    .freepik-attr {
+      position: absolute;
+      bottom: 7%;
+      width: 45%;
+      right: 0;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px;
+      color: #fff;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #fff;
+    }
+    .footer-text {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      color: #ff4263;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    @media only screen and (max-width: 1441px) {
+      .heading-desc {
+        top: 235px; 
+      }
+      .heading-btn {
+        top: 360px;
+      }
+    }
+    @media only screen and (max-width: 1025px) {
+      .heading-container {
+        height: 745px;
+      }
+      .heading-desc {
+        top: 255px; 
+      }
+    }
+    @media only screen and (max-width: 769px) {
+      .heading-container {
+        height: 705px;
+      }
+      .heading-btn {
+        top: 450px;
+      }
+    }
+    @media only screen and (max-width: 536px) {
+      .heading {
+        width: 45%;
+      }
+      .heading-desc {
+        top: 305px;
+        width: 52%;
+      }
+      .heading-btn {
+        top: 470px;
+      }
+    }
+    @media only screen and (max-width: 426px) {
+      .heading-container {
+        height: 1045px;
+      }
+      .heading {
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 85%;
+      }
+      .heading-desc {
+        top: 255px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 85%;
+      }
+      .heading-btn {
+        min-width: unset;
+        top: 415px;
+        left: 8%;
+        width: 45%;
+      }
+      .girl-img {
+        top: unset;
+        left: unset;
+        bottom: 10%;
+        width: 40%;
+      }
+      .boy-img {
+        top: unset;
+        bottom: 9%;
+        right: 0;
+        width: 47%;
+      }
+      .freepik-attr {
+        width: 100%;
+      }
+    }
+    @media only screen and (max-width: 321px) {
+      .heading-container {
+        height: 975px;
+      }
+      .heading-desc {
+        top: 300px;
+      }
+      .heading-btn {
+        top: 485px;
+        min-width: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-container">
+      <h1 class="header">ShySay</h1>
+      <p class="lang"><span>EN</span> | ID</p>
+    </div>
+    <div class="heading-container">
+      <h1 class="heading">Tell your <u>feelings</u> to Your <u>love</u></h1>
+      <p class="heading-desc">Too shy to message them directly? Send words to someone special for you, or relatives and friends with ShySay.</p>
+      <button class="heading-btn">Send a message</button>
+      <img class="girl-img" src="../img/girl.png">
+      <img class="boy-img" src="../img/boy.png">
+      <a href="https://www.freepik.com/vectors/people" class="freepik-attr">People vector created by jcomp - www.freepik.com</a>
+    </div>
+    <div class="footer">
+      <p class="footer-text"></p>
+    </div>
+  </div>
+  <script>
+    var date = new Date();
+    var year = date.getFullYear();
+    $('.footer-text').html(`Copyright © ${year} ShySay™. All Rights Reserved`);
+
+    $(window).scroll(function() {
+      if ($(window).scrollTop() > 0) {
+        $('.header-container').css({
+          'background-color': '#fff',
+          'height': '60px'
+        });
+        $('.header, .lang').css({
+          'color': '#ff7088'
+        });
+      } else {
+        $('.header-container').css({
+          'background-color': 'transparent',
+          'height': '80px'
+        });
+        $('.header, .lang').css({
+          'color': '#fff'
+        });
+      }
+    });
+  </script>
+</body>
+</html>
