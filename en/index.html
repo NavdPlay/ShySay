@@ -48,6 +48,9 @@
       font-weight: 600;
     }
     .lang > span {
+      cursor: pointer;
+    }
+    .lang > .current-lang {
       font-weight: 800;
       text-decoration: underline;
     }
@@ -231,7 +234,10 @@
   <div class="container">
     <div class="header-container">
       <h1 class="header" onclick="location.replace('index.html')" style="cursor: pointer;">ShySay</h1>
-      <p class="lang"><span>EN</span> | ID</p>
+      <p class="lang">
+        <span class="current-lang" onclick="location.href = 'message.html'">EN</span> | <span
+          onclick="location.href = 'index.html'">ID</span>
+      </p>
     </div>
     <div class="heading-container">
       <h1 class="heading" data-aos="fade-up">Tell your <u>feelings</u> to Your <u>love</u></h1>
