@@ -147,7 +147,7 @@
       top: calc(22% - 5px);
       transform: translateX(-50%);
       width: calc(100% - 10px);
-      height: 200px;
+      max-height: 200px;
       font-family: 'Lato', sans-serif;
       font-size: 15px;
       line-height: 25px;
@@ -159,7 +159,6 @@
       left: calc(55% - 5px);
       transform: translateX(-50%);
       width: calc(100% - 10px);
-      bottom: 25px;
       font-family: 'Lato', sans-serif;
       font-size: 15px;
       line-height: 25px;
@@ -250,6 +249,10 @@
     $('.letter-heading').html(infos.rec != '' ? 'Terhormat ' + infos.rec + ',' : 'Yang terhormat,');
     $('.letter-body').html(infos.message != '' ? infos.message : 'Gapapa kok, cuma mau bilang halo doang :)');
     $('.letter-sign').html(infos.name != '' ? 'Salam hangat,<br>' + infos.name + '.' : 'Salam hangat,<br>Anonimus.');
+    
+    $('.letter-sign').css({
+      'top': (115 + $('.letter-body').height()).toString() + 'px'
+    });
   </script>
 </body>
 
