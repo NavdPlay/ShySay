@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/44bca1acc7.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+  <link rel="stylesheet" href="checkbox.css" />
+  <title>Message - ShySay</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito:400,500,600,700,800,900');
+
+    html * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      height: 1417px;
+      background: rgb(255,66,99);
+      background: linear-gradient(25deg, rgba(255,66,99,1) 0%, rgba(255,205,214,1) 100%);
+    }
+
+    .header-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: transparent;
+      z-index: 1;
+      height: 80px;
+      transition: 0.3s;
+    }
+    .header, .lang {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      transition: 0.3s;
+    }
+    .header {
+      left: 7%;
+      font-size: 35px;
+      font-weight: 800;
+      width: 15%;
+    }
+    .lang {
+      right: 7%;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .lang > span {
+      cursor: pointer;
+    }
+    .lang > .current-lang {
+      font-weight: 800;
+      text-decoration: underline;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #fff;
+    }
+    .footer-text {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      color: #ff4263;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .name-heading, .message-heading, .url-heading, .recipient-heading {
+      position: absolute;
+      top: 170px;
+      font-size: 34px;
+      font-family: 'Nunito', sans-serif;
+      width: 100%;
+      font-weight: 800;
+      color: #fff;
+      line-height: 36px;
+      text-align: center;
+    }
+    .name-input-box, .message-input-box, .recipient-input-box {
+      position: absolute;
+      top: 235px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 80px;
+      width: 340px;
+    }
+    .name-input, .recipient-input {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 45px;
+      text-align: center;
+      border: none;
+      outline: none;
+      font-family: 'Nunito', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #ff8ea0;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+    .name-input:disabled {
+      background-color: #ffd9e0;
+      cursor: not-allowed;
+    }
+    .recipient-heading {
+      top: 410px;
+    }
+    .recipient-input-box {
+      top: 510px;
+      height: 45px;
+    }
+    .message-heading {
+      top: 665px;
+    }
+    .message-input-box {
+      top: 795px;
+      height: unset;
+    }
+    .message-input {
+      position: relative;
+      padding: 15px;
+      right: 1px;
+      resize: none;
+      width: calc(100% - 30px);
+      transform: scale(1.1);
+      height: 155px;
+      font-size: 18px;
+      font-family: 'Nunito', sans-serif;
+      color: #ff8ea0;
+      font-weight: 600;
+      outline: none;
+      border: none;
+      border-radius: 4px;
+    }
+    .url-heading {
+      top: 1085px;
+    }
+    .url-input-box {
+      position: absolute;
+      top: 1185px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 45px;
+      /* width: 570px; */
+      width: 45%;
+      min-width: 340px;
+    }
+    .url-input {
+      width: calc(100% - 120px);
+      height: calc(100% - 20px);
+      border: none;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: 'Nunito', sans-serif;
+      letter-spacing: 0.5px;
+      color: #ff4263;
+      outline: none;
+      background-color: #fff;
+    }
+    .copy-button {
+      position: absolute;
+      right: 5px;
+      width: 15%;
+      min-width: 85.5px;
+      height: 100%;
+      text-align: center;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 4px;
+      border: none;
+      font-family: 'Nunito', sans-serif;
+      background-color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .copy-button:hover {
+      background-color: #ff4263;
+      color: #fff;
+      transform: scale(1.1);
+    }
+    @media only screen and (max-width: 426px) {
+      .message-input {
+        transform: scale(1);
+        height: 126px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-container">
+      <h1 class="header" onclick="location.replace('index.html')" style="cursor: pointer;">ShySay</h1>
+      <p class="lang" >
+        <span class="current-lang" onclick="location.href = 'message.html'">EN</span> | <span 
+          onclick="location.href = '../id/message.html'">ID</span>
+      </p>
+    </div>
+
+    <h1 class="name-heading">What is your name?</h1>
+    <div class="name-input-box">
+      <input type="text" class="name-input" id="name-input" placeholder="Your name" maxlength="25">
+      <label class="control control-checkbox">
+        Or set as "Anonymous"
+        <input type="checkbox" onclick="checkbox(this)" id="checkbox" checked />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+
+    <h1 class="recipient-heading">What is that person's <br> name?</h1>
+    <div class="recipient-input-box">
+      <input type="text" class="recipient-input" id="recipient-input" placeholder="Their name" maxlength="25">
+    </div>
+
+    <h1 class="message-heading">What is the message <br> for that person?</h1>
+    <div class="message-input-box">
+      <textarea id="message-input" cols="45" rows="10" class="message-input" placeholder="Message goes here..." maxlength="1000"></textarea>
+    </div>
+
+    <h1 class="url-heading">Done writing? send <br> this link to that person</h1>
+    <div class="url-input-box">
+      <input type="text" id="url-input" class="url-input" readonly>
+      <button class="copy-button" data-clipboard-target="#url-input">Copy  <i class="fa fa-copy"></i></button>
+      </button>
+    </div>
+
+    <div class="footer">
+      <p class="footer-text"></p>
+    </div>
+  </div>
+  <script>
+    new ClipboardJS('.copy-button');
+
+    var name = "";
+    var date = new Date();
+    var year = date.getFullYear();
+    $('.footer-text').html(`Copyright © ${year} ShySay™. All Rights Reserved`);
+
+    function checkbox(x) {
+      var input = document.getElementById('name-input');
+      var message = document.getElementById('message-input');
+      var recep = document.getElementById('recipient-input');
+      if (x.checked) {
+        name = input.value;
+        input.value = "Anonymous";
+        input.setAttribute('disabled', 'disabled');
+      } else {
+        input.value = name;
+        input.removeAttribute('disabled');
+      }
+      checkUrl(input, message, recep);
+    }
+
+    function checkDate() {
+      if (date.getMonth() + 1 == 2 && date.getDate() == 14) {
+        $('#message-input').html("Happy Valentine, ");
+      }
+    }
+
+    function checkUrl(input, message, recep) {
+      if ( input.value != '' || message.value != '' ) {
+        var url = `https://navdplay.github.io/ShySay/en/res.html?name=${btoa(input.value)}&rec=${btoa(recep.value)}&message=${btoa(message.value)}`;
+        document.getElementById('url-input').value = url;
+        // console.log(url);
+        // console.log(url.length);
+        if (url.length >= 2006) {
+          message.setAttribute('maxlength', `${message.value.length}`);
+        } else {
+          message.removeAttribute('maxlength');
+        }
+        return true;
+      }
+      return false;
+    }
+
+    document.getElementById('name-input').onkeyup = function() {
+      checkUrl(document.getElementById('name-input'), document.getElementById('message-input'), document.getElementById('recipient-input'));
+    }
+
+    document.getElementById('message-input').onkeyup = function () {
+      checkUrl(document.getElementById('name-input'), document.getElementById('message-input'), document.getElementById('recipient-input'));
+    }
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 0) {
+        $('.header-container').css({
+          'background-color': '#fff',
+          'height': '60px'
+        });
+        $('.header, .lang').css({
+          'color': '#ff7088'
+        });
+      } else {
+        $('.header-container').css({
+          'background-color': 'transparent',
+          'height': '80px'
+        });
+        $('.header, .lang').css({
+          'color': '#fff'
+        });
+      }
+    });
+
+    checkbox(document.getElementById('checkbox'));
+    checkDate();
+  </script>
+</body>
+</html>
