@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/44bca1acc7.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="../query.js"></script>
+  <link rel="stylesheet" href="checkbox.css" />
+  <title>Surat buat kamu - ShySay</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito:400,500,600,700,800,900');
+    @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+    html * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      height: 642px;
+      background: rgb(255, 66, 99);
+      background: linear-gradient(25deg, rgba(255, 66, 99, 1) 0%, rgba(255, 205, 214, 1) 100%);
+    }
+
+    ::-webkit-scrollbar {
+      width: 12.5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #90a4ae;
+      border-radius: 6px;
+      border: 5px solid #fff;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #89979e;
+    }
+    ::-webkit-scrollbar-thumb:active {
+      background: #69747a;
+    }
+
+    .header-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: transparent;
+      z-index: 1;
+      height: 80px;
+      transition: 0.3s;
+    }
+    .header,
+    .lang {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      transition: 0.3s;
+    }
+
+    .header {
+      left: 7%;
+      font-size: 35px;
+      font-weight: 800;
+      width: 15%;
+    }
+    .lang {
+      right: 7%;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .lang>span {
+      cursor: pointer;
+    }
+    .lang >.current-lang {
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #fff;
+    }
+    .footer-text {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      color: #ff4263;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .img-box {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 32px;
+      width: 100%;
+      max-width: 500px;
+    }
+    .letter-img {
+      width: 100%;
+    }
+    .img-line {
+      width: calc(100% - 65px);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 2px;
+      border: none;
+      background-color: #0a0a0a;
+      height: 2.4px;
+      border-radius: 5pc;
+    }
+    .letter-box {
+      position: absolute;
+      left: 50%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+      width: 75%;
+      height: 375px;
+    }
+    .letter-heading {
+      font-size: 35px;
+      font-family: 'Shadows Into Light', cursive;
+      text-align: center;
+    }
+    .letter-body {
+      position: absolute;
+      left: calc(55% - 5px);
+      top: calc(22% - 5px);
+      transform: translateX(-50%);
+      width: calc(100% - 10px);
+      height: 200px;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      line-height: 25px;
+      letter-spacing: 1px;
+      overflow-y: scroll;
+    }
+    .letter-sign {
+      position: absolute;
+      left: calc(55% - 5px);
+      transform: translateX(-50%);
+      width: calc(100% - 10px);
+      bottom: 25px;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      line-height: 25px;
+    }
+    @media only screen and (max-width: 1441px) {
+      .img-box {
+        transform: translateX(-50%) scale(1.12);
+      }
+    }
+    @media only screen and (max-width: 769px) {
+      .img-box {
+        transform: translateX(-50%) scale(1.05);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header-container">
+      <h1 class="header" onclick="location.replace('index.html')" style="cursor: pointer;">ShySay</h1>
+      <p class="lang">
+        <span onclick="changeLang()">EN</span> | <span class="current-lang"
+          onclick="location.reload()">ID</span>
+      </p>
+    </div>
+
+    <div class="img-box">
+      <div class="letter-box">
+        <h1 class="letter-heading">Yang terhormat,</h1>
+        <div class="letter-body">Gapapa kok, cuma mau bilang halo doang :)</div>
+        <p class="letter-sign">Salam hangat,<br>Anonimus.</p>
+      </div>
+      <img src="../img/letter-bg.png" alt="letter" class="letter-img">
+      <hr class="img-line">
+    </div>
+
+    <div class="footer">
+      <p class="footer-text"></p>
+    </div>
+  </div>
+  <script>
+    var name = "";
+    var date = new Date();
+    var year = date.getFullYear();
+    $('.footer-text').html(`Copyright © ${year} ShySay™. All Rights Reserved`);
+    
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 0) {
+        $('.header-container').css({
+          'background-color': '#fff',
+          'height': '60px'
+        });
+        $('.header, .lang').css({
+          'color': '#ff7088'
+        });
+      } else {
+        $('.header-container').css({
+          'background-color': 'transparent',
+          'height': '80px'
+        });
+        $('.header, .lang').css({
+          'color': '#fff'
+        });
+      }
+    });
+
+    function changeLang() {
+      var locStr = window.location.href;
+      location.replace(locStr.replace('/id/', '/en/'));
+    }
+
+    var infos = linkQuery();
+
+    $('.letter-heading').html(infos.rec != '' ? 'Terhormat ' + infos.rec + ',' : 'Yang terhormat,');
+    $('.letter-body').html(infos.message != '' ? infos.message : 'Gapapa kok, cuma mau bilang halo doang :)');
+    $('.letter-sign').html(infos.name != '' ? 'Salam hangat,<br>' + infos.name + '.' : 'Salam hangat,<br>Anonimus.');
+  </script>
+</body>
+
+</html>
