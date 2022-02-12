@@ -22,6 +22,7 @@
     .container {
       position: relative;
       width: 100%;
+      height: 100vh;
       min-height: 642px;
       background: rgb(255, 66, 99);
       background: linear-gradient(25deg, rgba(255, 66, 99, 1) 0%, rgba(255, 205, 214, 1) 100%);
@@ -171,6 +172,19 @@
     @media only screen and (max-width: 769px) {
       .img-box {
         transform: translateX(-50%) scale(1.05);
+      }
+    }
+    @media only screen and (max-width: 401px) {
+      .img-box {
+        transform: translateX(-50%) scale(1.05);
+        height: 500px;
+        bottom: 45px;
+      }
+      .letter-img {
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        height: 530px;
       }
     }
   </style>
