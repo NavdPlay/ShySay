@@ -173,6 +173,12 @@
         transform: translateX(-50%) scale(1.05);
       }
     }
+    @media only screen and (max-width: 426px) {
+      .letter-body {
+        top: calc(22% + 45px);
+        max-height: 160px;
+      }
+    }
     @media only screen and (max-width: 401px) {
       .img-box {
         transform: translateX(-50%) scale(1.05);
@@ -250,9 +256,15 @@
     $('.letter-body').html(infos.message != '' ? infos.message : 'Gapapa kok, cuma mau bilang halo doang :)');
     $('.letter-sign').html(infos.name != '' ? 'Salam hangat,<br>' + infos.name + '.' : 'Salam hangat,<br>Anonimus.');
     
-    $('.letter-sign').css({
-      'top': (115 + $('.letter-body').height()).toString() + 'px'
-    });
+    if ( $(window).width() > 425 ) {
+      $('.letter-sign').css({
+        'top': (115 + $('.letter-body').height()).toString() + 'px'
+      });
+    } else {
+      $('.letter-sign').css({
+        'top': (145 + $('.letter-body').height()).toString() + 'px'
+      });
+    }
   </script>
 </body>
 
