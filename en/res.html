@@ -147,7 +147,7 @@
       top: calc(22% - 5px);
       transform: translateX(-50%);
       width: calc(100% - 10px);
-      height: 200px;
+      max-height: 200px;
       font-family: 'Lato', sans-serif;
       font-size: 15px;
       line-height: 25px;
@@ -159,7 +159,6 @@
       left: calc(55% - 5px);
       transform: translateX(-50%);
       width: calc(100% - 10px);
-      bottom: 25px;
       font-family: 'Lato', sans-serif;
       font-size: 15px;
       line-height: 25px;
@@ -250,6 +249,10 @@
     $('.letter-heading').html(infos.rec != '' ? 'Dear ' + infos.rec + ',' : 'Dear someone,');
     $('.letter-body').html(infos.message != '' ? infos.message : 'No message, just want to say hello to you :)');
     $('.letter-sign').html(infos.name != '' ? 'Kindest regards,<br>' + infos.name + '.' : 'Kindest regards,<br>Anonymous.');
+    
+    $('.letter-sign').css({
+      'top': (115 + $('.letter-body').height()).toString() + 'px'
+    });
   </script>
 </body>
 
