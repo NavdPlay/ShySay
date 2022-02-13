@@ -246,12 +246,12 @@
   </div>
   <script>
     new ClipboardJS('.copy-button');
-
+    //copyright info footer
     var name = "";
     var date = new Date();
     var year = date.getFullYear();
     $('.footer-text').html(`Copyright © ${year} ShySay™. All Rights Reserved`);
-
+    //checkbox listener
     function checkbox(x) {
       var input = document.getElementById('name-input');
       var message = document.getElementById('message-input');
@@ -266,19 +266,18 @@
       }
       checkUrl(input, message, recep);
     }
-
+    //check if it is valentine's day
     function checkDate() {
       if (date.getMonth() + 1 == 2 && date.getDate() == 14) {
         $('#message-input').html("Happy Valentine, ");
       }
     }
-
+    //read queries url
     function checkUrl(input, message, recep) {
       if ( input.value != '' || message.value != '' ) {
         var url = `https://navdplay.github.io/ShySay/en/res.html?name=${btoa(input.value)}&rec=${btoa(recep.value)}&message=${btoa(message.value)}`;
         document.getElementById('url-input').value = url;
-        // console.log(url);
-        // console.log(url.length);
+        //set max length in base64
         if (url.length >= 2006) {
           message.setAttribute('maxlength', `${message.value.length}`);
         } else {
@@ -288,7 +287,7 @@
       }
       return false;
     }
-
+    //get all inputs
     document.getElementById('name-input').onkeyup = function() {
       checkUrl(document.getElementById('name-input'), document.getElementById('message-input'), document.getElementById('recipient-input'));
     }
@@ -296,7 +295,7 @@
     document.getElementById('message-input').onkeyup = function () {
       checkUrl(document.getElementById('name-input'), document.getElementById('message-input'), document.getElementById('recipient-input'));
     }
-
+    //styles
     $(window).scroll(function () {
       if ($(window).scrollTop() > 0) {
         $('.header-container').css({

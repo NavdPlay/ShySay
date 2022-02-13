@@ -221,10 +221,11 @@
   </div>
   <script>
     var name = "";
+    //copyright infos
     var date = new Date();
     var year = date.getFullYear();
     $('.footer-text').html(`Copyright © ${year} ShySay™. All Rights Reserved`);
-    
+    //styles
     $(window).scroll(function () {
       if ($(window).scrollTop() > 0) {
         $('.header-container').css({
@@ -244,18 +245,18 @@
         });
       }
     });
-
+    //redirect to language
     function changeLang() {
       var locStr = window.location.href;
       location.replace(locStr.replace('/en/', '/id/'));
     }
-
+    //formats url
     var infos = linkQuery();
-
+    //inner html
     $('.letter-heading').html(infos.rec != '' ? 'Dear ' + infos.rec + ',' : 'Dear someone,');
     $('.letter-body').html(infos.message != '' ? infos.message : 'No message, just want to say hello to you :)');
     $('.letter-sign').html(infos.name != '' ? 'Kindest regards,<br>' + infos.name + '.' : 'Kindest regards,<br>Anonymous.');
-    
+    //responsive
     if ( $(window).width() > 425 ) {
       $('.letter-sign').css({
         'top': (115 + $('.letter-body').height()).toString() + 'px'
