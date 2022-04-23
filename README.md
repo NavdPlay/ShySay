@@ -1,15 +1,15 @@
 # ShySay
 
-Proyek ini adalah proyek gabut saya lagi, yang terinspirasi dari valentine. Web ini adalah website untuk mengirim pesan/note untuk seseorang yang mungkin spesial untuk anda.
+This project is another of my peat projects, which are inspired by valentines. This website is a website for sending messages/notes to someone who may be special to you.
 #
 
 Fitur: 
-- Dilengkapi dengan 2 bahasa: Indonesia & Inggris
+- 2 available languages: Indonesian & English
 - Pesan dengan nama pengirim/anonim
 
 #
  
-Teknologi dan alat yang digunakan: 
+Technology and tools used: 
  
 Visual Studio Code 
 <img alt="Visual Studio Code" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />
@@ -28,9 +28,9 @@ Library jQuery
 
 #
 
-Library lainnya:
+Libraries:
 - Fontawesome
 
 #
 
-Link demo: https://navdplay.github.io/ShySay/
+<a href="https://navdplay.github.io/ShySay/">Demo</a>
